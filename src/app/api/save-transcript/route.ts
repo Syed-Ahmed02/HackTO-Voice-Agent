@@ -123,7 +123,7 @@ RESPOND WITH ONLY THE JSON OBJECT.`;
       response_format: { type: "json_object" } // Request JSON format if supported
     });
 
-    const responseContent = completion.choices[0]?.message?.content;
+    const responseContent = (completion as any).choices?.[0]?.message?.content;
     console.log('📄 Raw Cerebras response:', responseContent?.substring(0, 200) + '...');
     
     if (!responseContent) {
@@ -211,13 +211,13 @@ RESPOND WITH ONLY THE JSON OBJECT.`;
   } catch (error) {
     console.error('❌ Error generating personalized plan:', error);
     console.error('Error details:', {
-      message: error.message,
-      name: error.name,
-      stack: error.stack?.substring(0, 500)
+      message: error instanceof Error ? error.message : String(error),
+      name: error instanceof Error ? error.name : 'Unknown',
+      stack: error instanceof Error ? error.stack?.substring(0, 500) : undefined
     });
     
     // Return a more informative error plan
-    throw new Error(`Plan generation failed: ${error.message}`);
+    throw new Error(`Plan generation failed: ${error instanceof Error ? error.message : String(error)}`);
   }
 }
 
@@ -295,7 +295,7 @@ export async function POST(req: NextRequest) {
       
     } catch (planError) {
       console.error('❌ Error generating personalized plan:', planError);
-      planGenerationError = planError.message;
+      planGenerationError = planError instanceof Error ? planError.message : String(planError);
       
       // Still save a basic plan file with error information
       const errorPlanData = {
@@ -343,8 +343,8 @@ export async function POST(req: NextRequest) {
       { 
         success: false,
         message: 'Error processing transcript', 
-        error: error.message,
-        details: error.stack?.substring(0, 500),
+        error: error instanceof Error ? error.message : String(error),
+        details: error instanceof Error ? error.stack?.substring(0, 500) : undefined,
         timestamp: new Date().toISOString()
       },
       { status: 500 }
