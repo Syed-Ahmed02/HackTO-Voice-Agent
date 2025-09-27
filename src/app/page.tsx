@@ -1,21 +1,5 @@
-"use client";
+import { redirect } from 'next/navigation'
 
-import { Authenticated, Unauthenticated } from "convex/react";
-import { SignInButton, UserButton } from "@clerk/nextjs";
-import { useQuery } from "convex/react";
-import { api } from "../../convex/_generated/api";
-export default function Home() {
-  return (
-    <>
-      <Authenticated>
-        <UserButton />
-        <div>
-          Hello World!
-        </div>
-      </Authenticated>
-      <Unauthenticated>
-        <SignInButton />
-      </Unauthenticated>
-    </>
-  );
+export default function HomePage() {
+  redirect('/fitness')
 }
