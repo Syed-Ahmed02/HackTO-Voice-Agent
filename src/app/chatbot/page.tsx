@@ -44,16 +44,13 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
 
       if (response.ok) {
         const result = await response.json();
-        console.log('✅ Transcript saved to server successfully:', result);
-        alert(`Transcript saved! File: ${result.filename}`);
+        console.log('Transcript saved to server successfully:', result);
       } else {
         const errorText = await response.text();
-        console.error('❌ Failed to save transcript:', response.status, response.statusText, errorText);
-        alert(`Failed to save transcript: ${response.status} ${response.statusText}`);
+        console.error('Failed to save transcript:', response.status, response.statusText, errorText);
       }
     } catch (error) {
-      console.error('❌ Error saving transcript:', error);
-      alert(`Error saving transcript: ${error.message}`);
+      console.error('Error saving transcript:', error);
     }
   };
 

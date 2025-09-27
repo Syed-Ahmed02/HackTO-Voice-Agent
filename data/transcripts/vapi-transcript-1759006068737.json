@@ -1,0 +1,149 @@
+{
+  "sessionId": "1759006067785",
+  "timestamp": "2025-09-27T20:47:47.785Z",
+  "messages": [
+    {
+      "role": "assistant",
+      "text": "Hi.",
+      "timestamp": 1759005968689
+    },
+    {
+      "role": "assistant",
+      "text": "I'm your personal health assistant.",
+      "timestamp": 1759005970454
+    },
+    {
+      "role": "assistant",
+      "text": "To create the perfect plan for you, I need to know.",
+      "timestamp": 1759005973680
+    },
+    {
+      "role": "assistant",
+      "text": "Your age, weekly time commitment,",
+      "timestamp": 1759005975796
+    },
+    {
+      "role": "assistant",
+      "text": "30 minutes a few times or more,",
+      "timestamp": 1759005977544
+    },
+    {
+      "role": "assistant",
+      "text": "workout preference, gym, home, or community,",
+      "timestamp": 1759005980731
+    },
+    {
+      "role": "assistant",
+      "text": "Main goal, weight loss, strength, endurance, or general health?",
+      "timestamp": 1759005984673
+    },
+    {
+      "role": "assistant",
+      "text": "And what motivates you, friends, solo, classes, or outdoors?",
+      "timestamp": 1759005989190
+    },
+    {
+      "role": "assistant",
+      "text": "The more details, the better your personalized plan.",
+      "timestamp": 1759005992486
+    },
+    {
+      "role": "user",
+      "text": "I'm 16. I can commit 30 minutes a week. My preference is",
+      "timestamp": 1759005999121
+    },
+    {
+      "role": "user",
+      "text": "home. I my mango is strength, and I, uh, what motivates me is",
+      "timestamp": 1759006004014
+    },
+    {
+      "role": "user",
+      "text": "being alone.",
+      "timestamp": 1759006004843
+    },
+    {
+      "role": "assistant",
+      "text": "Thanks for that information about being 16.",
+      "timestamp": 1759006008233
+    },
+    {
+      "role": "assistant",
+      "text": "Preferring home workouts, focusing on on strength,",
+      "timestamp": 1759006011247
+    },
+    {
+      "role": "assistant",
+      "text": "and liking to exercise alone,",
+      "timestamp": 1759006013378
+    },
+    {
+      "role": "assistant",
+      "text": "30 minutes a week is a good start.",
+      "timestamp": 1759006015940
+    },
+    {
+      "role": "assistant",
+      "text": "Can you clarify what you mean by my mango is strength?",
+      "timestamp": 1759006019426
+    },
+    {
+      "role": "user",
+      "text": "No. My main goal is strength.",
+      "timestamp": 1759006038317
+    },
+    {
+      "role": "assistant",
+      "text": "Thanks for clarifying your main goal is strength.",
+      "timestamp": 1759006041735
+    },
+    {
+      "role": "assistant",
+      "text": "Now about that 30 minutes a week,",
+      "timestamp": 1759006043744
+    },
+    {
+      "role": "assistant",
+      "text": "is that 3 sessions of 10 minutes or 1 session of 30 minutes?",
+      "timestamp": 1759006047409
+    },
+    {
+      "role": "user",
+      "text": "Uh, 3 session of 10 minutes. Sure.",
+      "timestamp": 1759006056521
+    },
+    {
+      "role": "assistant",
+      "text": "I got it.",
+      "timestamp": 1759006057930
+    },
+    {
+      "role": "assistant",
+      "text": "So 3 sessions of 10 minutes, 3 times a week.",
+      "timestamp": 1759006060903
+    },
+    {
+      "role": "assistant",
+      "text": "At home,",
+      "timestamp": 1759006061699
+    },
+    {
+      "role": "assistant",
+      "text": "and working on strength.",
+      "timestamp": 1759006063403
+    },
+    {
+      "role": "assistant",
+      "text": "Perfect.",
+      "timestamp": 1759006064061
+    },
+    {
+      "role": "assistant",
+      "text": "I have everything I need to create a personalized fitness plan",
+      "timestamp": 1759006067784
+    }
+  ],
+  "triggerDetected": true,
+  "triggerMessage": "I have everything I need",
+  "detectedIn": "I have everything I need to create a personalized fitness plan"
+}

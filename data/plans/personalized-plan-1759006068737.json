@@ -1,0 +1,48 @@
+{
+  "sessionId": "1759006067785",
+  "originalTranscript": "vapi-transcript-1759006068737.json",
+  "generatedAt": "2025-09-27T20:47:49.224Z",
+  "plan": {
+    "summary": "The user is a 16-year-old who prefers home workouts, aims to build strength, and likes exercising alone. They have 30 minutes a week to commit to their fitness goal, broken down into 3 sessions of 10 minutes. The user seeks a personalized plan to achieve their strength goal.",
+    "userProfile": {
+      "preferences": [
+        "home workouts",
+        "exercising alone"
+      ],
+      "constraints": [
+        "limited to 30 minutes a week"
+      ],
+      "goals": [
+        "build strength"
+      ],
+      "timeAvailability": "3 sessions of 10 minutes per week"
+    },
+    "recommendations": {
+      "shortTerm": [
+        "start with bodyweight exercises like push-ups, squats, and lunges",
+        "explore online resources for strength training routines",
+        "invest in a set of resistance bands"
+      ],
+      "longTerm": [
+        "progress to more challenging exercises like pull-ups and dips",
+        "incorporate progressive overload to increase strength",
+        "consider working with a virtual personal trainer"
+      ],
+      "actionItems": [
+        "research 3 bodyweight exercises to start with",
+        "watch 2 online tutorials on proper form and technique",
+        "purchase a set of resistance bands within the next 2 weeks"
+      ]
+    },
+    "nextSteps": [
+      "research and create a list of 3 bodyweight exercises to start with",
+      "watch online tutorials on proper form and technique",
+      "purchase a set of resistance bands and schedule workouts for the next week"
+    ]
+  },
+  "metadata": {
+    "messageCount": 28,
+    "triggerDetected": true,
+    "generationMethod": "cerebras-llm"
+  }
+}
