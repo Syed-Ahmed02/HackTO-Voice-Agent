@@ -13,6 +13,7 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as chatbot from "../chatbot.js";
 import type * as queries from "../queries.js";
 import type * as seed from "../seed.js";
 
@@ -25,6 +26,7 @@ import type * as seed from "../seed.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  chatbot: typeof chatbot;
   queries: typeof queries;
   seed: typeof seed;
 }>;

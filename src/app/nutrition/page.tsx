@@ -15,11 +15,13 @@ import {
 } from "lucide-react"
 import { nutritionData, todaysMeals, todaysWorkout } from "@/lib/data"
 import { Meal } from "@/lib/types"
+import { useRouter } from "next/navigation"
 
 export default function NutritionPage() {
+  const router = useRouter()
+  
   const startVoiceChat = () => {
-    // Placeholder for Vapi integration
-    console.log("Starting voice chat with AI nutritionist...")
+    router.push('/chatbot')
   }
 
   return (

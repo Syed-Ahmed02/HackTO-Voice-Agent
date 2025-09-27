@@ -1,9 +1,7 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import {
   Sidebar,
@@ -25,6 +23,7 @@ import {
   BookOpen,
   Target,
 } from "lucide-react"
+import { useUser, UserButton } from "@clerk/nextjs"
 
 const iconMap = {
   Apple,
@@ -44,24 +43,36 @@ const navItems = [
 
 export function AppSidebar() {
   const pathname = usePathname()
+  const router = useRouter()
+  const { user, isLoaded } = useUser()
 
   const startVoiceChat = () => {
-    // Placeholder for Vapi integration
-    console.log("Starting voice chat with AI trainer...")
+    router.push('/chatbot')
   }
+
 
   return (
     <Sidebar>
       <SidebarHeader>
-        {/* User Profile */}
-        <div className="flex items-center gap-3 mb-4">
-          <Avatar className="h-12 w-12">
-            <AvatarImage src="/fitness-user-avatar.png" />
-            <AvatarFallback className="bg-primary text-primary-foreground font-semibold">SA</AvatarFallback>
-          </Avatar>
-          <div>
-            <h3 className="font-semibold text-sidebar-foreground">Syed Ahmed</h3>
-            <p className="text-sm text-muted-foreground">Health Enthusiast</p>
+        {/* User Profile with Clerk UserButton */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <UserButton 
+              appearance={{
+                elements: {
+                  avatarBox: "h-12 w-12",
+                  userButtonPopoverCard: "shadow-lg border",
+                  userButtonPopoverActions: "gap-2",
+                  userButtonPopoverActionButton: "hover:bg-gray-100",
+                }
+              }}
+            />
+            <div>
+              <h3 className="font-semibold text-sidebar-foreground">
+                {isLoaded ? (user?.fullName || user?.firstName || 'User') : 'Loading...'}
+              </h3>
+              <p className="text-sm text-muted-foreground">Health Enthusiast</p>
+            </div>
           </div>
         </div>
       </SidebarHeader>

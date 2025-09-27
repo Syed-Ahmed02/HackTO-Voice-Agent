@@ -6,6 +6,8 @@ import { ClerkProvider } from '@clerk/nextjs'
 import ConvexClientProvider from '@/components/ConvexClientProvider'
 import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar'
 import { AppSidebar } from '@/components/app-sidebar'
+import { VapiProvider } from '@/contexts/VapiContext'
+import { AuthenticatedLayout } from '../components/AuthenticatedLayout'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,19 +28,11 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <ClerkProvider>
           <ConvexClientProvider>
-            <SidebarProvider>
-              <AppSidebar />
-              <SidebarInset>
-                <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-                  <SidebarTrigger className="-ml-1" />
-                  <div className="h-4 w-px bg-sidebar-border" />
-                  <h1 className="text-lg font-semibold">Health Dashboard</h1>
-                </header>
-                <div className="flex flex-1 flex-col gap-4 p-4">
-                  {children}
-                </div>
-              </SidebarInset>
-            </SidebarProvider>
+            <VapiProvider>
+              <AuthenticatedLayout>
+                {children}
+              </AuthenticatedLayout>
+            </VapiProvider>
           </ConvexClientProvider>
         </ClerkProvider>
       </body>

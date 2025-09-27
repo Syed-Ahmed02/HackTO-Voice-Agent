@@ -1,4 +1,4 @@
-import { query } from "./_generated/server";
+import { query, mutation } from "./_generated/server";
 import { v } from "convex/values";
 
 // Get all users
@@ -310,5 +310,57 @@ export const getDashboardData = query({
       recentDiaryEntries,
       activeVisions,
     };
+  },
+});
+
+// Save a chatbot conversation to the database
+export const saveConversation = mutation({
+  args: {
+    userId: v.id("users"),
+    title: v.optional(v.string()),
+    messages: v.array(v.object({
+      role: v.union(v.literal("user"), v.literal("assistant")),
+      content: v.string(),
+      timestamp: v.string(),
+    })),
+    context: v.optional(v.object({
+      currentWorkout: v.optional(v.id("workouts")),
+      currentNutritionTarget: v.optional(v.id("nutritionTargets")),
+      recentDiaryEntry: v.optional(v.id("diaryEntries")),
+    })),
+    triggerDetected: v.optional(v.boolean()),
+    triggerMessage: v.optional(v.string()),
+    detectedIn: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    const conversationId = await ctx.db.insert("chatbotConversations", {
+      userId: args.userId,
+      title: args.title || `Conversation ${new Date().toLocaleDateString()}`,
+      messages: args.messages,
+      context: args.context,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    });
+
+    // If trigger was detected, create a diary entry
+    if (args.triggerDetected) {
+      console.log(`Trigger message "${args.triggerMessage}" detected in conversation ${conversationId}`);
+      
+      await ctx.db.insert("diaryEntries", {
+        userId: args.userId,
+        date: new Date().toISOString().split('T')[0],
+        time: new Date().toLocaleTimeString(),
+        entry: `Completed AI coaching session. Trigger phrase "${args.triggerMessage}" was mentioned.`,
+        mood: "content",
+        tags: ["ai-coaching", "session-complete"],
+        recommendations: [
+          "Review the conversation insights",
+          "Apply the coaching advice",
+          "Schedule follow-up if needed"
+        ],
+      });
+    }
+
+    return conversationId;
   },
 });

@@ -8,11 +8,13 @@ import {
   Calendar,
 } from "lucide-react"
 import { diaryEntries, todaysWorkout } from "@/lib/data"
+import { useRouter } from "next/navigation"
 
 export default function DiaryPage() {
+  const router = useRouter()
+  
   const startVoiceChat = () => {
-    // Placeholder for Vapi integration
-    console.log("Starting voice chat with AI health coach...")
+    router.push('/chatbot')
   }
 
   return (

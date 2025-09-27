@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -17,6 +18,7 @@ import { exercises, todaysWorkout } from "@/lib/data"
 import { Exercise, ExerciseData } from "@/lib/types"
 
 export default function FitnessPage() {
+  const router = useRouter()
   const [pendingExercises, setPendingExercises] = useState<Exercise[]>(exercises)
   const [completedExercises, setCompletedExercises] = useState<Exercise[]>([])
   const [exerciseData, setExerciseData] = useState<Record<number, ExerciseData>>(
@@ -54,8 +56,7 @@ export default function FitnessPage() {
   }
 
   const startVoiceChat = () => {
-    // Placeholder for Vapi integration
-    console.log("Starting voice chat with AI trainer...")
+    router.push('/chatbot')
   }
 
   return (
