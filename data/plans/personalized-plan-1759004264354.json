@@ -1,0 +1,48 @@
+{
+  "sessionId": "1759004263729",
+  "originalTranscript": "vapi-transcript-1759004264354.json",
+  "generatedAt": "2025-09-27T20:17:45.747Z",
+  "plan": {
+    "summary": "The user is a 16-year-old individual aiming to improve their strength through bodyweight exercises at home, working alone, with a 30-minute weekly time commitment. The user prefers to break up their workout sessions throughout the week.",
+    "userProfile": {
+      "preferences": [
+        "working at home",
+        "working alone",
+        "bodyweight exercises"
+      ],
+      "constraints": [
+        "limited to 30 minutes a week"
+      ],
+      "goals": [
+        "improve strength"
+      ],
+      "timeAvailability": "30 minutes per week, broken up into smaller sessions"
+    },
+    "recommendations": {
+      "shortTerm": [
+        "start with 3-4 times a week, 5-10 minute sessions of bodyweight exercises",
+        "focus on basic exercises like push-ups, squats, and lunges",
+        "track progress and adjust routine as needed"
+      ],
+      "longTerm": [
+        "increase workout frequency or duration over time",
+        "explore online resources or fitness apps for guidance",
+        "consider incorporating other forms of physical activity"
+      ],
+      "actionItems": [
+        "research and create a list of 5 bodyweight exercises to start with",
+        "schedule workout sessions in a calendar or planner"
+      ]
+    },
+    "nextSteps": [
+      "create a sample workout routine with 3-4 exercises",
+      "commit to working out 3-4 times a week for the next 2 weeks",
+      "review progress and adjust routine as needed"
+    ]
+  },
+  "metadata": {
+    "messageCount": 29,
+    "triggerDetected": true,
+    "generationMethod": "cerebras-llm"
+  }
+}

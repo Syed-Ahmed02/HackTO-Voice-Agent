@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@cerebras/cerebras_cloud_sdk": "^1.50.0",
     "@vapi-ai/web": "^2.4.0",
     "framer-motion": "^12.23.22",
     "lucide-react": "^0.544.0",
