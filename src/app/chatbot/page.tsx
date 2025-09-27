@@ -24,11 +24,13 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
   const vapiApiKey = apiKey || process.env.NEXT_PUBLIC_VAPI_API_KEY || process.env.VAPI_API_KEY;
   const vapiAssistantId = assistantId || "7cf2fed6-379a-49de-9230-1b81c355b98b";
 
-  const triggerMessage = "I have everything I need";
+  const triggerMessage = "Let me put together some recommendations that match your goals and preferences!";
 
   // Function to save transcript via API
   const saveTranscriptToServer = async (transcriptData: any) => {
     try {
+      console.log('Attempting to save transcript:', transcriptData);
+      
       const response = await fetch('/api/save-transcript', {
         method: 'POST',
         headers: {
@@ -37,14 +39,21 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
         body: JSON.stringify(transcriptData),
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+
       if (response.ok) {
         const result = await response.json();
-        console.log('Transcript saved to server:', result);
+        console.log('✅ Transcript saved to server successfully:', result);
+        alert(`Transcript saved! File: ${result.filename}`);
       } else {
-        console.error('Failed to save transcript:', response.statusText);
+        const errorText = await response.text();
+        console.error('❌ Failed to save transcript:', response.status, response.statusText, errorText);
+        alert(`Failed to save transcript: ${response.status} ${response.statusText}`);
       }
     } catch (error) {
-      console.error('Error saving transcript:', error);
+      console.error('❌ Error saving transcript:', error);
+      alert(`Error saving transcript: ${error.message}`);
     }
   };
 
@@ -174,6 +183,29 @@ const VapiWidget: React.FC<VapiWidgetProps> = ({
 
   return (
     <>
+      {/* Test Save Button - Remove after testing */}
+      <div className="fixed top-4 right-4 z-50">
+        <button
+          onClick={() => {
+            const testData = {
+              sessionId: Date.now().toString(),
+              timestamp: new Date().toISOString(),
+              messages: transcript.length > 0 ? transcript : [
+                { role: 'user', text: 'Test message', timestamp: Date.now() },
+                { role: 'assistant', text: 'Test response', timestamp: Date.now() + 1000 }
+              ],
+              triggerDetected: true,
+              triggerMessage: triggerMessage,
+              detectedIn: 'Manual test save'
+            };
+            saveTranscriptToServer(testData);
+          }}
+          className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
+        >
+          Save to Storage (Test)
+        </button>
+      </div>
+
       {isConnected && (
         <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 flex gap-4">
           <button

@@ -1,0 +1,19 @@
+{
+  "sessionId": "1759001377634",
+  "timestamp": "2025-09-27T19:29:37.634Z",
+  "messages": [
+    {
+      "role": "user",
+      "text": "Test message",
+      "timestamp": 1759001377634
+    },
+    {
+      "role": "assistant",
+      "text": "Test response",
+      "timestamp": 1759001378634
+    }
+  ],
+  "triggerDetected": true,
+  "triggerMessage": "Let me put together some recommendations that match your goals and preferences!",
+  "detectedIn": "Manual test save"
+}
